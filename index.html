@@ -15,16 +15,18 @@
         <div class="weather-app">
             <div class="container">
                 <h3 class="brand">The Weather</h3>
+                <h3 id="country" class="country">IN</h3>
                 <div>
-                    <h1 class="temps">16&#176;</h1>
+                    <div class="today" id="current-temp">
+                        <div class="other">
+                            <div class="temps">Night - 25.6&#176; C</div>
+                            <div class="temps">Day - 35.6&#176; C</div>
+                        </div>
+                    </div>
                     <div class="city-time">
-                        <h1 class="name">Argentina</h1>
+                        <h2 class="time-zone name" id="time-zone">Asia/Kolkata</h2>
                         <div class="time" id="time"> 12:33 <span id="am-pm">PM</span> </div>
                         <div class="date" id="date"> Tuesday, 14 Jun</div>
-                    </div>
-                    <div class="weather">
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                        <span class="condition">Cloudy</span>
                     </div>
                 </div>
             </div>
@@ -51,15 +53,6 @@
                     </div>
                 </div>
                 <div class="future-forecast">
-                    <div class="today" id="current-temp">
-                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                        <div class="other">
-                            <div class="day">Monday</div>
-                            <div class="temp">Night - 25.6&#176; C</div>
-                            <div class="temp">Day - 35.6&#176; C</div>
-                        </div>
-                    </div>
-
                     <div class="weather-forecast" id="weather-forecast">
                         <div class="weather-forecast-item">
                             <div class="day">Tue</div>

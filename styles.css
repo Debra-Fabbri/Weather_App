@@ -54,6 +54,17 @@ h1, h3{
     align-items: center;
 }
 
+.country{
+    display: flex; 
+    position: absolute; 
+    margin-top: 50px;
+}
+.city-time{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .city-time, .temp, .weather{
     margin: 0 1em;
 }
@@ -64,8 +75,15 @@ h1, h3{
     font-size: 3em;
 }
 
+.time-zone{
+    margin-bottom: 80px;
+}
+
+.time, .date{
+    font-size: 20px;
+}
 .temps{
-    font-size: 7em;
+    font-size: 30px;
     margin: 0;
 }
 
@@ -214,5 +232,8 @@ h1, h3{
 @media screen and (max-width: 450px){
     .weather-app{
         width: 100vh;
+    }
+    .temps{
+        font-size: 20px;
     }
 }

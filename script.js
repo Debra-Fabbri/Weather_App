@@ -7,6 +7,9 @@ const countryEl = document.getElementById('country');
 const weatherForecastEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
 
+const form = document.getElementById('locationInput');
+const search = document.querySelector('.search');
+const btn = document.querySelector('.submit');
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -42,13 +45,26 @@ function getWeatherData () {
         })
 
     })
-}
+};
+
+form.addEventListener('submit', (e) => {
+    if(search.value.length == 0){
+        alert('Please type in a city name');
+    }else{
+        cityInput = search.value;
+        getWeatherData();
+        search.value = "";
+        app.style.opacity = "0";
+    }
+    e.preventDefault();
+});
+
 
 function showWeatherData (data){
     let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
 
-    /*timezone.innerHTML = data.timezone;
-    countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'*/
+    timezone.innerHTML = data.timezone;
+    countryEl.innerHTML = data.lat + 'N ' + data.lon+'E';
 
     currentWeatherItemsEl.innerHTML = 
     `<div class="weather-item">
@@ -81,9 +97,8 @@ function showWeatherData (data){
             currentTempEl.innerHTML = `
             <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
             <div class="other">
-                <div class="day">${window.moment(day.dt*1000).format('dddd')}</div>
-                <div class="temp">Night - ${day.temp.night}&#176;C</div>
-                <div class="temp">Day - ${day.temp.day}&#176;C</div>
+                <div class="temps">Night - ${day.temp.night}&#176;C</div>
+                <div class="temps">Day - ${day.temp.day}&#176;C</div>
             </div>
             
             `
